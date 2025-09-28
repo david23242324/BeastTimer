@@ -4,33 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeastTimer Gym</title>
-  <link href="./styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>BeastTimer Gym</header>
+
+  <main>
     
-    <header>BeastTimer Gym</header>
+    <div class="circle" id="circle">
+      <span id="time">00:00</span>
+    </div>
 
-  <div class="circle" id="circle">
-    <span id="time">00:00</span>
-  </div>
-  <div class="controls">
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
-    <button id="reset">LA CTM</button>
-    <button id="camBtn"> Smart Mode</button>
-  </div>
+    
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+      <button id="camBtn">🎥 Smart Mode</button>
+    </div>
 
+    
+    <div class="camera-container" id="cameraContainer">
+      <video id="camera" autoplay playsinline></video>
+    </div>
+  </main>
 
-  <div class="camera-container" id="cameraContainer">
-    <video id="camera" autoplay playsinline></video>
-  </div>
-
+  
   <nav>
-    <button class="active"><span>Inicio</span></button>
-    <button><span>Rutinas</span></button>
-    <button>⏱<span>LA CTM</span></button>
-    <button><span>Progreso</span></button>
-    <button><span>Perfil</span></button>
+    <button class="active">🏠<span>Inicio</span></button>
+    <button>💪<span>Rutinas</span></button>
+    <button>⏱️<span>Series</span></button>
+    <button>📊<span>Progreso</span></button>
+    <button>⚙️<span>Perfil</span></button>
   </nav>
 
   <script src="app.js"></script>
