@@ -10,7 +10,7 @@
       let sec = String(seconds % 60).padStart(2, "0");
       timeEl.textContent = `${min}:${sec}`;
 
-      let progress = (seconds % 60) * (100 / 60); 
+      let progress = (seconds % 60) * (100 / 60);
       circle.style.setProperty("--progress", `${progress}%`);
     }
 
@@ -38,7 +38,7 @@
 
     updateTime();
 
-    
+    // ---- CÁMARA ----
     const camBtn = document.getElementById("camBtn");
     const cameraContainer = document.getElementById("cameraContainer");
     const video = document.getElementById("camera");

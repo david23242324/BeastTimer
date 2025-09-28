@@ -15,43 +15,42 @@
     }
 
     header {
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       font-size: 1.3rem;
       font-weight: 600;
       color: white;
-      letter-spacing: 1px;
     }
 
-    
+    /* --- CRONÓMETRO --- */
     .circle {
       position: relative;
-      width: clamp(200px, 60vw, 280px);
-      height: clamp(200px, 60vw, 280px);
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       background: conic-gradient(white 0% var(--progress, 0%), #333 var(--progress, 0%) 100%);
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 20px auto 10px;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-      transition: all 0.4s ease;
+      margin: auto;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
     }
 
     .circle span {
       position: absolute;
-      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-size: 2.2rem;
       font-weight: 600;
       color: white;
     }
 
-
+    /* --- BOTONES --- */
     .controls {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      margin: 10px 15px;
+      margin: 15px 10px;
     }
 
     button {
@@ -70,30 +69,34 @@
       background: white;
       color: black;
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
-
+    /* --- CAMARA --- */
     .camera-container {
       display: none;
       justify-content: center;
-      margin: 15px auto;
+      margin: 10px auto;
     }
 
     video {
-      width: 80%;
-      max-width: 300px;
+      width: 85%;
+      max-width: 320px;
       border-radius: 15px;
       border: 2px solid white;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
+    /* --- NAVBAR --- */
     nav {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       background: #0d0d0d;
       padding: 12px 0;
       border-top: 1px solid #333;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
 
     nav button {
@@ -101,7 +104,7 @@
       background: none;
       border: none;
       color: #888;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -115,11 +118,4 @@
     nav button:hover {
       color: white;
       transform: scale(1.1);
-    }
-
-    @media (max-width: 400px) {
-      button {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-      }
     }
