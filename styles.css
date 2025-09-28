@@ -1,60 +1,127 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #0f2027;
-  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
 
-.container {
-  text-align: center;
-  background-color: rgba(0,0,0,0.3);
-  padding: 20px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 400px;
-}
+    body {
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    }
 
-h1 {
-  margin-bottom: 5px;
-}
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 1px;
+    }
 
-.subtitle {
-  font-size: 0.9em;
-  color: #aaa;
-  margin-bottom: 15px;
-}
+    /* --- CRONÓMETRO --- */
+    .circle {
+      position: relative;
+      width: clamp(200px, 60vw, 280px);
+      height: clamp(200px, 60vw, 280px);
+      border-radius: 50%;
+      background: conic-gradient(white 0% var(--progress, 0%), #333 var(--progress, 0%) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto 10px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
 
-.timer {
-  font-size: 4em;
-  margin: 20px 0;
-}
+    .circle span {
+      position: absolute;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-weight: 600;
+      color: white;
+    }
 
-.buttons button {
-  background-color: #00c853;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-}
+    /* --- BOTONES --- */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px 15px;
+    }
 
-.buttons button:hover {
-  background-color: #009624;
-}
+    button {
+      background: black;
+      border: 2px solid white;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.settings {
-  margin-top: 15px;
-}
+    button:hover {
+      background: white;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
 
-.settings input {
-  width: 60px;
-  text-align: center;
-  margin-left: 5px;
-}
+    /* --- CAMARA --- */
+    .camera-container {
+      display: none;
+      justify-content: center;
+      margin: 15px auto;
+    }
+
+    video {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 15px;
+      border: 2px solid white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* --- NAVBAR --- */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background: #0d0d0d;
+      padding: 12px 0;
+      border-top: 1px solid #333;
+    }
+
+    nav button {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    nav button.active {
+      color: white;
+    }
+
+    nav button:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 400px) {
+      button {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+    }

@@ -1,50 +1,66 @@
-let timerDisplay = document.getElementById('timer');
-let startBtn = document.getElementById('start');
-let pauseBtn = document.getElementById('pause');
-let resetBtn = document.getElementById('reset');
-let minutesInput = document.getElementById('minutes');
+    let timer;
+    let seconds = 0;
+    let running = false;
 
-let countdown;
-let timeLeft = 180; // 3 minutos iniciales
+    const timeEl = document.getElementById("time");
+    const circle = document.getElementById("circle");
 
-function updateDisplay() {
-  let minutes = Math.floor(timeLeft / 60);
-  let seconds = timeLeft % 60;
-  timerDisplay.textContent =
-    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-}
+    function updateTime() {
+      let min = String(Math.floor(seconds / 60)).padStart(2, "0");
+      let sec = String(seconds % 60).padStart(2, "0");
+      timeEl.textContent = `${min}:${sec}`;
 
-function startTimer() {
-  clearInterval(countdown);
-  countdown = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      updateDisplay();
-    } else {
-      clearInterval(countdown);
-      alert('¡Descanso terminado! 💪');
+      let progress = (seconds % 60) * (100 / 60); 
+      circle.style.setProperty("--progress", `${progress}%`);
     }
-  }, 1000);
-}
 
-function pauseTimer() {
-  clearInterval(countdown);
-}
+    document.getElementById("start").addEventListener("click", () => {
+      if (!running) {
+        running = true;
+        timer = setInterval(() => {
+          seconds++;
+          updateTime();
+        }, 1000);
+      }
+    });
 
-function resetTimer() {
-  clearInterval(countdown);
-  timeLeft = parseInt(minutesInput.value) * 60;
-  updateDisplay();
-}
+    document.getElementById("pause").addEventListener("click", () => {
+      running = false;
+      clearInterval(timer);
+    });
 
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer);
+    document.getElementById("reset").addEventListener("click", () => {
+      running = false;
+      clearInterval(timer);
+      seconds = 0;
+      updateTime();
+    });
 
-minutesInput.addEventListener('change', () => {
-  timeLeft = parseInt(minutesInput.value) * 60;
-  updateDisplay();
-});
+    updateTime();
 
-// Inicial
-updateDisplay();
+    // ---- CÁMARA ----
+    const camBtn = document.getElementById("camBtn");
+    const cameraContainer = document.getElementById("cameraContainer");
+    const video = document.getElementById("camera");
+    let camActive = false;
+
+    camBtn.addEventListener("click", async () => {
+      if (!camActive) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          video.srcObject = stream;
+          cameraContainer.style.display = "flex";
+          camBtn.textContent = "❌ Stop Cam";
+          camActive = true;
+        } catch (err) {
+          alert("No se pudo acceder a la cámara: " + err);
+        }
+      } else {
+        let tracks = video.srcObject.getTracks();
+        tracks.forEach(track => track.stop());
+        video.srcObject = null;
+        cameraContainer.style.display = "none";
+        camBtn.textContent = "🎥 Smart Mode";
+        camActive = false;
+      }
+    });
