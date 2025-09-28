@@ -38,7 +38,7 @@
 
     updateTime();
 
-    // ---- CÁMARA ----
+    
     const camBtn = document.getElementById("camBtn");
     const cameraContainer = document.getElementById("cameraContainer");
     const video = document.getElementById("camera");

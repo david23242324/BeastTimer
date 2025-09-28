@@ -23,7 +23,7 @@
       letter-spacing: 1px;
     }
 
-    /* --- CRONÓMETRO --- */
+    
     .circle {
       position: relative;
       width: clamp(200px, 60vw, 280px);
@@ -45,7 +45,7 @@
       color: white;
     }
 
-    /* --- BOTONES --- */
+
     .controls {
       display: flex;
       flex-wrap: wrap;
@@ -73,7 +73,7 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
-    /* --- CAMARA --- */
+
     .camera-container {
       display: none;
       justify-content: center;
@@ -88,7 +88,6 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
-    /* --- NAVBAR --- */
     nav {
       display: flex;
       justify-content: space-around;
@@ -118,7 +117,6 @@
       transform: scale(1.1);
     }
 
-    /* --- RESPONSIVE --- */
     @media (max-width: 400px) {
       button {
         padding: 8px 14px;
