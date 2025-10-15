@@ -3,41 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BeastTimer Gym</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Chuck Norris App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://i.pinimg.com/736x/8f/9d/8f/8f9d8fd6fc390b1d8f28996ae78f0f63.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.2) blur(5px);
+      z-index: 0;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: bold;
+      color: #ff3c3c;
+      text-shadow: 2px 2px 6px black;
+      margin-bottom: 20px;
+    }
+
+    .chuck-card {
+      width: clamp(140px, 40vw, 180px);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      margin-bottom: 20px;
+    }
+
+    .card {
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+
+    .version {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 410px) {
+      .card {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .card p {
+        font-size: 0.65rem;
+      }
+
+      .version {
+        font-size: 0.65rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>BeastTimer Gym</header>
+  <div class="background"></div>
 
-  <main>
-    
-    <div class="circle" id="circle">
-      <span id="time">00:00</span>
+  <div class="overlay">
+    <h1>Chuck Norris App</h1>
+    <img class="chuck-card" src="https://i.pinimg.com/736x/4f/44/46/4f4446703a3cc11638d7b9f83f73d70c.jpg" alt="Carta de Chuck Norris">
+
+    <div class="card">
+      <p>Esta aplicación fue creada para compartir las citas más duras, legendarias y absurdamente poderosas de Chuck Norris.</p>
+      <p>Prepárate para reír, sorprenderte y guardar tus favoritas.</p>
     </div>
 
-    
-    <div class="controls">
-      <button id="start">Start</button>
-      <button id="pause">Pause</button>
-      <button id="reset">Reset</button>
-      <button id="camBtn"> Smart Mode</button>
-    </div>
-
-    
-    <div class="camera-container" id="cameraContainer">
-      <video id="camera" autoplay playsinline></video>
-    </div>
-  </main>
-
-  
-  <nav>
-    <button class="active"><span>Inicio</span></button>
-    <button><span>Rutinas</span></button>
-    <button>⏱<span>Series</span></button>
-    <button><span>Progreso</span></button>
-    <button><span>Perfil</span></button>
-  </nav>
-
-  <script src="app.js"></script>
+    <div class="version">Versión 1.0.7 - Condiciones legales</div>
+  </div>
 </body>
 </html>
